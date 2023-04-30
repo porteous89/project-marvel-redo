@@ -43,7 +43,9 @@ function fetchData(nameStartsWith) {
 async function convertToPirateLanguage(pDescription) {
   const inputText = "convert this to pirate-language";
   const openKey = "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";
-  const endpoint = "https://api.openai.com/v1/completions";
+
+  const endpoint = "https://api.openai.com/v1/completions ";
+
   const payload = {
     model: "text-davinci-003",
     prompt: "Translate this into pirate-language\n\n" + pDescription,
@@ -141,6 +143,7 @@ function loadStorage() {
     listItem.innerHTML = search;
     listHolder.appendChild(listItem);
   });
+
   // added a clear button to clear search history stored in local storage
   let clearButton = document.createElement("button");
   clearButton.className = "button is-small is-warning is-outlined";
