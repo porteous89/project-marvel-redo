@@ -1,7 +1,9 @@
+require("dotenv").config();
+
 // Keys to be attached to get the response from Marvel server
-const publicKey = "14d27cc0e17db4c46e2a1c8c038702f8";
-const privateKey = "dd786203735e0d58df194e5f71e0a50fbc7df72a";
-const apiUrl = "https://gateway.marvel.com:443/v1/public/characters?";
+const publicKey = process.env.PUBLIC_KEY;
+const privateKey = process.env.PRIVATE_KEY;
+const apiUrl = process.env.API_URL;
 
 // HTML element for spinner
 const spinner = document.getElementById("spinner");
@@ -46,7 +48,7 @@ async function fetchData(nameStartsWith) {
 
 // Function to convert text to Pirate Language using OpenAI
 async function convertToPirateLanguage(pDescription) {
-  const openKey = "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";
+  const openKey = process.env.OPEN_AI_KEY;
   const endpoint = "https://api.openai.com/v1/completions";
 
   const payload = {
@@ -74,7 +76,7 @@ async function convertToPirateLanguage(pDescription) {
 
 // Function to get the hero's eye color and change the style elements on the page based on the result
 async function getEyeColor(heroName) {
-  const key = "110595011943951";
+  const superheroApiKey = process.env.SUPERHEROAPI_KEY;
   const url = `https://www.superheroapi.com/api.php/${key}/search/${heroName}`;
 
   const response = await fetch(url);
